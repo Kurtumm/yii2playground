@@ -3,7 +3,9 @@
 namespace app\modules\KTGenerator\controllers;
 
 use app\modules\KTGenerator\models\CrudGenerator;
-use yii\gii\generators\crud\Generator;
+//use yii\gii\generators\crud\Generator;
+use app\modules\KTGenerator\gii\templates\crud\Generator;
+use Yii;
 
 class CrudController extends \yii\web\Controller
 {
@@ -38,6 +40,8 @@ class CrudController extends \yii\web\Controller
                 $generator->baseControllerClass = $_POST['CrudGenerator']['baseControllerClass'];
                 $generator->enablePjax = 1;
                 $generator->searchModelClass = $searchModelClass;
+                $generator->templates['backend'] = Yii::getAlias('@app/modules/KTGenerator/gii/templates/crud/backend');
+                $generator->template = 'backend';
 
                 $fs = $generator->generate();
                 $answers = [];

@@ -12,24 +12,36 @@ $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="province-index">
 
-    <h1><?= Html::encode($this->title) ?></h1>
+    <h1 class="page-header"><?= Html::encode($this->title) ?></h1>
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
 
     <p>
         <?= Html::a('Create Province', ['create'], ['class' => 'btn btn-success']) ?>
     </p>
-<?php Pjax::begin(); ?>    <?= GridView::widget([
-        'dataProvider' => $dataProvider,
-        'filterModel' => $searchModel,
-        'columns' => [
-            ['class' => 'yii\grid\SerialColumn'],
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            index
+            <p class="pull-right">
+                <?= Html::a('Create Province', ['create'], ['class' => 'btn btn-success btn-xs']) ?>
+            </p>
+        </div>
+        <div class="panel-body">
+            <?php Pjax::begin(); ?>
+            <?php echo $this->render('_search', ['model' => $searchModel]); ?>
+            <?= GridView::widget([
+                'dataProvider' => $dataProvider,
+                'filterModel' => $searchModel,
+				'columns' => [
+                    ['class' => 'yii\grid\SerialColumn'],
+					'provinceId',
+					'provinceCode',
+					'provinceName',
+					'geographyId',
 
-            'provinceId',
-            'provinceCode',
-            'provinceName',
-            'geographyId',
-
-            ['class' => 'yii\grid\ActionColumn'],
-        ],
-    ]); ?>
-<?php Pjax::end(); ?></div>
+                    ['class' => 'yii\grid\ActionColumn'],
+                ],
+            ]); ?>
+            <?php Pjax::end(); ?>
+        </div>
+    </div>
+</div>

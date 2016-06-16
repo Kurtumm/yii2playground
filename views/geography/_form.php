@@ -10,14 +10,28 @@ use yii\widgets\ActiveForm;
 
 <div class="geography-form">
 
-    <?php $form = ActiveForm::begin(); ?>
+    <?php $form = ActiveForm::begin([
+        'options' => ['class' => 'form-horizontal', 'enctype' => 'multipart/form-data'],
+        'fieldConfig' => [
+            'template' => '{label}<div class="col-sm-10">{input}</div>',
+            'labelOptions'=> [
+                'class'=>'col-sm-2 control-label'
+            ]
+        ]
+    ]); ?>
 
-    <?= $form->field($model, 'geographyName')->textInput(['maxlength' => true]) ?>
+    <div class="panel panel-default">
+        <div class="panel-heading">Form</div>
+        <div class="panel-body">
 
-    <div class="form-group">
-        <?= Html::submitButton($model->isNewRecord ? 'Create' : 'Update', ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
+			<?= $form->field($model, 'geographyName')->textInput(['maxlength' => true]) ?>
+
+            <div class="form-group">
+                <?= Html::submitButton($model->isNewRecord ? 'Create' : 'Update', ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
+            </div>
+        </div>
     </div>
-
+    
     <?php ActiveForm::end(); ?>
 
 </div>

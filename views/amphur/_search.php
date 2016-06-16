@@ -13,21 +13,14 @@ use yii\widgets\ActiveForm;
     <?php $form = ActiveForm::begin([
         'action' => ['index'],
         'method' => 'get',
+        'options' => ['data-pjax' => true, 'class' => 'well'],
     ]); ?>
 
-    <?= $form->field($model, 'amphurId') ?>
-
-    <?= $form->field($model, 'amphurCode') ?>
-
-    <?= $form->field($model, 'amphurName') ?>
-
-    <?= $form->field($model, 'geographyId') ?>
-
-    <?= $form->field($model, 'provinceId') ?>
-
-    <div class="form-group">
-        <?= Html::submitButton('Search', ['class' => 'btn btn-primary']) ?>
-        <?= Html::resetButton('Reset', ['class' => 'btn btn-default']) ?>
+    <div class="input-group">
+        <span class="input-group-btn">
+            <?= Html::submitButton('Search', ['class' => 'btn btn-primary']) ?>
+        </span>
+        <?= Html::activeTextInput($model, 'searchText', ['class'=>'form-control'])?>
     </div>
 
     <?php ActiveForm::end(); ?>
