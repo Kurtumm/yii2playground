@@ -20,7 +20,7 @@ class CrudController extends \yii\web\Controller
             $controllerNameSpace = $_POST['CrudGenerator']['controllerNamespace'];
             $files = scandir($modelPath);
             foreach ($files as $file) {
-                if ($file == '.' || $file == '..' || substr($file, -4, 4) != '.php') {
+                if ($file == '.' || $file == '..' || substr($file, -4, 4) != '.php' || substr($file, -10, 10) == 'Master.php') {
                     continue;
                 }
                 $modelName = substr($file, 0, -4);

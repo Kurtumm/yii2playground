@@ -4,7 +4,8 @@ namespace app\modules\KTGenerator\controllers;
 
 use app\modules\KTGenerator\models\ModelGenerator;
 use Yii;
-use yii\gii\generators\model\Generator;
+//use yii\gii\generators\model\Generator;
+use app\modules\KTGenerator\gii\templates\model\Generator;
 
 class ModelController extends \yii\web\Controller
 {
@@ -40,6 +41,7 @@ class ModelController extends \yii\web\Controller
                     $generator->tableName = $tableName;
                     $generator->modelClass = $modelClass . 'Master';
                     $generator->ns = $modelNameSpace . '\master';
+//                    $generator->ns = $modelNameSpace;
 //                    $generator->baseClass = $modelNameSpace . '\ModelMaster';
                     $generator->baseClass = $model->baseClass;
                     $files = $generator->generate();

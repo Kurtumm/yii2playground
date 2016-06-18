@@ -38,6 +38,7 @@ $config = [
             ],
         ],
         'db' => require(__DIR__ . '/db.php'),
+        'dbCostfit' => require(__DIR__ . '/dbCostfit.php'),
         'urlManager' => [
             'enablePrettyUrl' => true,
             'showScriptName' => false,

@@ -41,7 +41,7 @@ $this->params['breadcrumbs'][] = $this->title;
             </p>
         </div>
         <div class="panel-body">
-            <?= "<?= " ?>DetailView::widget([
+            <?= "<?= " ?>DetailVigenerateRelationsew::widget([
                 'model' => $model,
                 'attributes' => [
 <?php

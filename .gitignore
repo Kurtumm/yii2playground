@@ -25,3 +25,16 @@ composer.phar
 phpunit.phar
 # local phpunit config
 /phpunit.xml
+
+/views/*
+!/views/site
+!/views/layouts
+
+/models/*
+!/models/LoginForm.php
+!/models/ContactForm.php
+!/models/ModelMaster.php
+!/models/User.php
+
+/controllers/*
+!/controllers/SiteController.php
